@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.pptx
+balanced_*
+*.png
+.tmp.bdg.UQRZka
+bedgraphs_CTCF_FE
+*.pdf
+outpu*
+gencode.v19.annotation (1).gtf.gz
+Thumbs.db
