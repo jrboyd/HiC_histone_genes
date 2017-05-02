@@ -2,13 +2,7 @@
 library(magrittr)
 #characterize low mapping regions that are being messed up in bin balancing
 # load("balanced_bins/Galaxy3-[AT1_TotUnbalMatrix_hg19_40kb].data")
-files = c(
-  "balanced_bins/Galaxy4-[hESC_TotUnbalMatrix_hg19_40kb].data",
-  "balanced_bins/Galaxy2-[10A_TotUnbalMatrix_hg19_40kb].data",
-  "balanced_bins/Galaxy3-[AT1_TotUnbalMatrix_hg19_40kb].data",
-  "balanced_bins/Galaxy1-[CA1a_TotUnbalMatrix_hg19_40kb].data",
-  "balanced_bins/Galaxy5-[MCF7_TotUnbalMatrix_hg19_40kb].data"
-)
+files = dir(path = "bins_balanced/", full.names = T)
 # files = files[c(2,5)]
 # # files = files[c(1,3:4)]
 
@@ -23,7 +17,7 @@ for(f in files){
   cSums = colSums(binned)
   cCounts = colSums(binned > 0)
   
-  MIN = quantile(cCounts, .1)
+  MIN = quantile(cCounts, .15)
   k = cCounts >= MIN
   
   hist((cCounts[k]), xlim = c(0,3000), breaks = max(cCounts)+1, lty = 0, col = "black")
